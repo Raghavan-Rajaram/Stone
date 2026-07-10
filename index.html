@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Runestone IT Consulting Services</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <h1>Runestone</h1>
+          <p>IT Consulting Services</p>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="site-nav">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-content">
+          <h2>Modern IT consulting for growing businesses</h2>
+          <p>We help organizations build reliable infrastructure, secure systems, and scalable applications with a practical, people-first approach.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Book a Consultation</a>
+            <a class="btn btn-secondary" href="#services">View Services</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <h3>Our Services</h3>
+          <div class="cards">
+            <article class="card">
+              <h4>IT Strategy</h4>
+              <p>Align technology with your business goals through planning, roadmaps, and modern best practices.</p>
+            </article>
+            <article class="card">
+              <h4>Cloud Migration</h4>
+              <p>Move confidently to cloud-native systems with secure, cost-effective architecture and expert guidance.</p>
+            </article>
+            <article class="card">
+              <h4>Security & Compliance</h4>
+              <p>Protect your data and systems with auditing, risk mitigation, and compliance-ready controls.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section feature" id="about">
+        <div class="container feature-grid">
+          <div>
+            <h3>Who We Are</h3>
+            <p>Runestone IT Consulting Services combines deep technical experience with a customer-first mindset. We partner with clients to deliver dependable IT solutions that support growth, improve efficiency, and reduce risk.</p>
+            <ul>
+              <li>Experienced IT consultants</li>
+              <li>Custom strategy tailored to your business</li>
+              <li>Transparent communication and delivery</li>
+            </ul>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <strong>15+</strong>
+              <span>Years in IT</span>
+            </div>
+            <div class="stat">
+              <strong>30+</strong>
+              <span>Successful projects</span>
+            </div>
+            <div class="stat">
+              <strong>99%</strong>
+              <span>Client retention</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials">
+        <div class="container">
+          <h3>Trusted by leaders in their field</h3>
+          <div class="testimonial-grid">
+            <blockquote>
+              <p>Runestone helped us move to the cloud without disruption and improved our security posture faster than expected.</p>
+              <cite>— Laura M., Operations Director</cite>
+            </blockquote>
+            <blockquote>
+              <p>Their team made complex IT strategy easy to understand, and the project was delivered on time with clear communication.</p>
+              <cite>— Naveen K., Founder</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="container contact-grid">
+          <div>
+            <h3>Get in Touch</h3>
+            <p>Ready to elevate your IT systems? Send us a message and we’ll reach out to discuss your needs.</p>
+          </div>
+          <form id="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p class="form-status" id="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Runestone IT Consulting Services. All rights reserved.</p>
+        <p>Contact: hello@runestoneit.com</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
