@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberVStack | QA Testing Experts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #f8faff, #e0f7ff);
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to right, #004aad, #00bcd4);
+      padding: 60px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      flex: 1 1 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card h3 {
+      color: #004aad;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    .contact-form {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      margin-top: 60px;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 20px;
+      color: #004aad;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #004aad;
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #00317e;
+    }
+
+    footer {
+      background: #002b5c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .services {
+        flex-direction: column;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CyberVStack</h1>
+    <p>Empowering Businesses with Reliable Automation & Manual Testing Solutions</p>
+  </header>
+
+  <section class="section">
+    <h2 style="text-align:center; font-size:2rem; color:#004aad;">Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Automation Testing</h3>
+        <p>We build scalable test automation frameworks using Selenium, Cypress, and more. Speed up releases and improve accuracy across all environments.</p>
+      </div>
+      <div class="card">
+        <h3>Manual Testing</h3>
+        <p>Our experts carefully validate applications across browsers, devices, and user journeys to ensure flawless user experiences and robust quality.</p>
+      </div>
+      <div class="card">
+        <h3>QA Consultation</h3>
+        <p>From test strategy to tool selection and implementation, we help you design an effective quality assurance roadmap for long-term success.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact-form">
+    <h2>Contact Us</h2>
+    <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 CyberVStack · All Rights Reserved
+  </footer>
+
+</body>
+</html>

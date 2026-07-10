@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Portal - CyberVStacks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e6f0fa 100%);
+            color: #2d3748;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+            color: white;
+            padding: 25px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            border-bottom: 4px solid #4299e1;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.8rem;
+            color: #63b3ed;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 3px;
+            color: #a0aec0;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .form-container {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-container {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            color: #2b6cb0;
+            font-size: 1.9rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #4299e1 0%, #3182ce 100%);
+            border-radius: 2px;
+        }
+
+        h2 i {
+            color: #4299e1;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f7fafc;
+        }
+
+        .form-control:focus {
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+            outline: none;
+            background: white;
+        }
+
+        .form-control::placeholder {
+            color: #a0aec0;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn {
+            background: linear-gradient(90deg, #2b6cb0 0%, #2c5282 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(90deg, #2c5282 0%, #2a4365 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(43, 108, 176, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(160, 174, 192, 0.3);
+        }
+
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload-btn {
+            background: #ebf8ff;
+            color: #2b6cb0;
+            border: 2px dashed #90cdf4;
+            border-radius: 8px;
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-btn:hover {
+            background: #bee3f8;
+            border-color: #63b3ed;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            height: 100%;
+            width: 100%;
+        }
+
+        .file-name {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #4a5568;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .job-list {
+            list-style: none;
+        }
+
+        .job-item {
+            padding: 18px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .job-item:hover {
+            background: #f7fafc;
+            transform: translateX(5px);
+        }
+
+        .job-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-icon {
+            background: #ebf8ff;
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .job-icon i {
+            color: #2b6cb0;
+            font-size: 1.5rem;
+        }
+
+        .job-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 7px;
+            color: #1a202c;
+        }
+
+        .job-details .job-meta {
+            display: flex;
+            gap: 15px;
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status {
+            display: none;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .status.success {
+            background: #f0fff4;
+            color: #2f855a;
+            border: 1px solid #c6f6d5;
+        }
+
+        .status.error {
+            background: #fff5f5;
+            color: #c53030;
+            border: 1px solid #fed7d7;
+        }
+
+        .required-indicator {
+            color: #e53e3e;
+            margin-left: 4px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #718096;
+            font-size: 0.95rem;
+            padding: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .privacy-link {
+            color: #4299e1;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .privacy-link:hover {
+            text-decoration: underline;
+        }
+
+        .company-highlight {
+            color: #2b6cb0;
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .tech-item {
+            background: #ebf8ff;
+            color: #2b6cb0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Job Description Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: modalFade 0.3s;
+        }
+
+        @keyframes modalFade {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .modal-header {
+            background: linear-gradient(90deg, #2b6cb0 0%, #2c5282 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+        }
+
+        .modal-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .job-description-section {
+            margin-bottom: 30px;
+        }
+
+        .job-description-section h4 {
+            color: #2b6cb0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .job-description-section h4 i {
+            font-size: 1.2rem;
+        }
+
+        .job-description-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .job-description-section ul {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .job-description-section li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .job-description-section li:before {
+            content: '•';
+            color: #4299e1;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .modal-footer {
+            padding: 0 30px 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .apply-btn {
+            flex: 1;
+        }
+
+        .back-btn {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+
+        /* Apply form visibility */
+        #apply-form {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .logo {
+                justify-content: center;
+            }
+            
+            .tech-stack {
+                gap: 10px;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-server"></i>
+                    <div class="logo-text">
+                        <h1>CyberVStacks</h1>
+                        <div class="tagline">Innovative Solutions for a Digital World</div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i> careers@cybervstacks.com
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="form-container" id="apply-form">
+                <h2><i class="fas fa-user-tie"></i> Apply for <span id="position-title">Position</span></h2>
+                
+                <div id="status-message" class="status"></div>
+                
+                <form id="job-application-form" enctype="multipart/form-data">
+                    <input type="hidden" id="selected-position" name="position">
+                    
+                    <div class="form-group">
+                        <label for="user_name">Full Name <span class="required-indicator">*</span></label>
+                        <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user_email">Email <span class="required-indicator">*</span></label>
+                        <input type="email" id="user_email" name="user_email" class="form-control" placeholder="your.email@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user_phone">Phone Number</label>
+                        <input type="tel" id="user_phone" name="user_phone" class="form-control" placeholder="(123) 456-7890">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Years of Experience</label>
+                        <select id="experience" name="experience" class="form-control">
+                            <option value="">Select experience level</option>
+                            <option value="0-2">0-2 years</option>
+                            <option value="2-5">2-5 years</option>
+                            <option value="5-10">5-10 years</option>
+                            <option value="10+">10+ years</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="resume">Upload Resume <span class="required-indicator">*</span></label>
+                        <div class="file-upload">
+                            <button type="button" class="file-upload-btn">
+                                <i class="fas fa-cloud-upload-alt"></i> Choose File (PDF, DOC, DOCX)
+                            </button>
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                        </div>
+                        <div id="file-name" class="file-name">No file selected</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Any additional information you'd like to share..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </form>
+            </div>
+            
+            <div class="info-container">
+                <div class="info-box">
+                    <h2><i class="fas fa-bullhorn"></i> Current Openings</h2>
+                    <ul class="job-list">
+                        <li class="job-item" data-id="frontend">
+                            <div class="job-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="job-details">
+                                <h3>Senior Frontend Developer</h3>
+                                <div class="job-meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                                    <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                    <span><i class="fas fa-dollar-sign"></i> $110K-$140K</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="job-item" data-id="cloud">
+                            <div class="job-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="job-details">
+                                <h3>Cloud Security Engineer</h3>
+                                <div class="job-meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Austin, TX</span>
+                                    <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                    <span><i class="fas fa-dollar-sign"></i> $130K-$160K</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="job-item" data-id="security">
+                            <div class="job-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="job-details">
+                                <h3>Security Analyst</h3>
+                                <div class="job-meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                                    <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                    <span><i class="fas fa-dollar-sign"></i> $95K-$125K</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="job-item" data-id="data">
+                            <div class="job-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="job-details">
+                                <h3>Data Engineer</h3>
+                                <div class="job-meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Boston, MA</span>
+                                    <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                    <span><i class="fas fa-dollar-sign"></i> $120K-$150K</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h2><i class="fas fa-star"></i> Why Join CyberVStacks?</h2>
+                    <ul style="list-style-type: none;">
+                        <li style="padding: 12px 0; display: flex; gap: 15px; border-bottom: 1px solid #e2e8f0;">
+                            <i class="fas fa-rocket" style="color: #4299e1; font-size: 1.3rem;"></i>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Cutting-edge Projects</h4>
+                                <p>Work with the latest technologies on innovative solutions</p>
+                            </div>
+                        </li>
+                        <li style="padding: 12px 0; display: flex; gap: 15px; border-bottom: 1px solid #e2e8f0;">
+                            <i class="fas fa-home" style="color: #4299e1; font-size: 1.3rem;"></i>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Flexible Remote Work</h4>
+                                <p>Work from anywhere with our remote-friendly policies</p>
+                            </div>
+                        </li>
+                        <li style="padding: 12px 0; display: flex; gap: 15px; border-bottom: 1px solid #e2e8f0;">
+                            <i class="fas fa-chart-line" style="color: #4299e1; font-size: 1.3rem;"></i>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Career Growth</h4>
+                                <p>Continuous learning and professional development opportunities</p>
+                            </div>
+                        </li>
+                        <li style="padding: 12px 0; display: flex; gap: 15px;">
+                            <i class="fas fa-users" style="color: #4299e1; font-size: 1.3rem;"></i>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Collaborative Culture</h4>
+                                <p>Join a team of passionate experts who support each other</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Your application information is securely stored and processed according to our <a href="#" class="privacy-link">Privacy Policy</a>.</p>
+            <p>&copy; 2023 <span class="company-highlight">CyberVStacks</span>. All rights reserved.</p>
+            
+            <div class="tech-stack">
+                <div class="tech-item">AWS</div>
+                <div class="tech-item">Azure</div>
+                <div class="tech-item">React</div>
+                <div class="tech-item">Node.js</div>
+                <div class="tech-item">Python</div>
+                <div class="tech-item">Kubernetes</div>
+                <div class="tech-item">Docker</div>
+                <div class="tech-item">Terraform</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Job Description Modals -->
+    <div id="frontend-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Senior Frontend Developer</h3>
+                <div class="job-meta" style="color: #ebf8ff;">
+                    <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                    <span><i class="fas fa-briefcase"></i> Full-time</span>
+                    <span><i class="fas fa-dollar-sign"></i> $110K-$140K</span>
+                </div>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="job-description-section">
+                    <h4><i class="fas fa-info-circle"></i> Overview</h4>
+                    <p>We are looking for an experienced Senior Frontend Developer to join our team. You will be responsible for building the client-side of our web applications with a focus on responsive design, performance, and user experience.</p>
+                </div>
+                
+                <div class="job-description-section">
+                    <h4><i class="fas fa-tasks"></i> Responsibilities</h4>
+                    <ul>
+                        <li>Develop new user-facing features using React.js</li>
+                        <li>Build reusable components and front-end libraries</li>
+                        <li>Translate designs and wireframes into high-quality code</li>
+                        <li>Optimize components for maximum performance across devices</li>
+                        <li>Collaborate with UX/UI designers to implement design systems</li>
+                        <li>Participate in code reviews and mentor junior developers</li>
+                    </ul>
+                </div>
+                
+                <div class="job-description-section">
+                    <h4><i class="fas fa-graduation-cap"></i> Requirements</h4>
+                    <ul>
+                        <li>5+ years of experience in frontend development</li>
+                        <li>Strong proficiency in JavaScript, including DOM manipulation</li>
+                        <li>Thorough understanding of React.js and its core principles</li>
+                        <li>Experience with state management (Redux, MobX, or Context API)</li>
+                        <li>Familiarity with modern frontend build pipelines and tools</li>
+                        <li>Experience with responsive design and cross-browser compatibility</li>
+                        <li>Knowledge of RESTful APIs and modern authorization mechanisms</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn apply-btn" data-position="frontend" data-title="Senior Frontend Developer">
+                    <i class="fas fa-paper-plane"></i> Apply Now
+                </button>
+                <button class="btn back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Jobs
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cloud-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Cloud Security Engineer</h3>
+                <div class="job-meta" style="color: #ebf8ff;">
+                    <span><i class="fas fa-map-marker-alt"></i> Austin, TX</span>
+                    <span><i class="fas fa-briefcase"></i> Full-time</span>
+                    <span><i class="fas fa-dollar-sign"></i> $130K-$160K</span>
+                </div>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="job-description-section">
+                    <h4><i class="fas fa-info-circle"></i> Overview</h4>
+                    <p>We're seeking a Cloud Security Engineer to design and implement security controls for our cloud infrastructure. You'll play a critical role in protecting our systems and data across AWS and Azure environments.</p>
+                </div>
+                
+                <div class="job-description-section">
+                    <h4><i class="fas fa-tasks"></i> Responsibilities</h4>
+                    <ul>
+                        <li>Design and implement security architectures for cloud environments</li>
+                        <li>Develop and maintain cloud security policies and standards</li>
+                        <li>Implement and manage security tools (WAF, IDS/IPS, SIEM)</li>
+                        <li>Conduct security assessments and penetration testing</li>
+                        <li>Monitor cloud environments for security incidents</li>
+                        <li>Implement identity and access management solutions</li>
+                        <li>Collaborate with DevOps teams on secure CI/CD pipelines</li>
+                    </ul>
+                </div>
+                
+                <div class="job-description-section">
+                    <h4><i class="fas fa-graduation-cap"></i> Requirements</h4>
+                    <ul>
+                        <li>4+ years of experience in cloud security</li>
+                        <li>Expertise in AWS and Azure security services</li>
+                        <li>Experience with infrastructure as code (Terraform, CloudFormation)</li>
+                        <li>Knowledge of container security (Docker, Kubernetes)</li>
+                        <li>Understanding of network security and encryption protocols</li>
+                        <li>Relevant certifications (CISSP, CCSP, AWS Security Specialty)</li>
+                        <li>Experience with security compliance frameworks (ISO 27001, SOC 2)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn apply-btn" data-position="cloud" data-title="Cloud Security Engineer">
+                    <i class="fas fa-paper-plane"></i> Apply Now
+                </button>
+                <button class="btn back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Jobs
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- More modals for other positions would go here -->
+    
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your user ID
+        (function() {
+            emailjs.init("YOUR_USER_ID_HERE");
+        })();
+        
+        // DOM elements
+        const form = document.getElementById('job-application-form');
+        const fileInput = document.getElementById('resume');
+        const fileNameDisplay = document.getElementById('file-name');
+        const statusMessage = document.getElementById('status-message');
+        const applyForm = document.getElementById('apply-form');
+        const positionTitle = document.getElementById('position-title');
+        const selectedPosition = document.getElementById('selected-position');
+        
+        // Show selected file name
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                fileNameDisplay.textContent = this.files[0].name;
+            } else {
+                fileNameDisplay.textContent = 'No file selected';
+            }
+        });
+        
+        // Job listing click handlers
+        document.querySelectorAll('.job-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const jobId = this.getAttribute('data-id');
+                document.getElementById(`${jobId}-modal`).style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+        
+        // Modal close handlers
+        document.querySelectorAll('.modal-close, .back-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            });
+        });
+        
+        // Apply button in modal
+        document.querySelectorAll('.apply-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const positionId = this.getAttribute('data-position');
+                const positionName = this.getAttribute('data-title');
+                
+                // Set position in form
+                selectedPosition.value = positionId;
+                positionTitle.textContent = positionName;
+                
+                // Show form and hide job listings
+                applyForm.style.display = 'block';
+                
+                // Close modal
+                this.closest('.modal').style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+                
+                // Scroll to form
+                applyForm.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Enable scrolling
+                }
+            });
+        });
+        
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            submitBtn.disabled = true;
+            
+            // Send email with attachment
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(function(response) {
+                    // Success message
+                    statusMessage.innerHTML = '<i class="fas fa-check-circle"></i> Application submitted successfully! Your resume has been sent to our team.';
+                    statusMessage.className = 'status success';
+                    statusMessage.style.display = 'block';
+                    
+                    // Reset form
+                    form.reset();
+                    fileNameDisplay.textContent = 'No file selected';
+                    
+                    // Scroll to success message
+                    statusMessage.scrollIntoView({ behavior: 'smooth' });
+                }, function(error) {
+                    // Error message
+                    statusMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> There was an error submitting your application. Please try again.';
+                    statusMessage.className = 'status error';
+                    statusMessage.style.display = 'block';
+                    
+                    // Scroll to error message
+                    statusMessage.scrollIntoView({ behavior: 'smooth' });
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>

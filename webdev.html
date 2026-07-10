@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web App Development Company | CyberVStacks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyberBlue: '#38bdf8',
+            cyberPurple: '#6366f1',
+            cyberDark: '#050816',
+          },
+          backgroundImage: {
+            'grid-pattern':
+              'radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.2) 1px, transparent 0)',
+          },
+          animation: {
+            'gradient-x': 'gradient-x 10s ease infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            'gradient-x': {
+              '0%, 100%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background-size: 20px 20px;
+    }
+    .glass {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+  </style>
+</head>
+<body
+  class="min-h-screen bg-cyberDark bg-grid-pattern text-white font-sans relative overflow-x-hidden"
+>
+  <!-- Animated background overlays -->
+  <div
+    class="pointer-events-none fixed inset-0 bg-gradient-to-r from-cyberBlue via-cyberPurple to-cyan-400 opacity-30 bg-[length:200%_200%] animate-gradient-x mix-blend-screen"
+  ></div>
+  <div
+    class="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,_rgba(15,23,42,0)_0,_rgba(15,23,42,1)_60%)] opacity-90"
+  ></div>
+
+  <!-- Header -->
+  <header class="relative z-10 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div
+          class="h-10 w-10 rounded-xl bg-gradient-to-br from-cyberBlue to-cyberPurple flex items-center justify-center shadow-lg shadow-cyan-500/40"
+        >
+          <span class="text-xl font-black">C</span>
+        </div>
+        <div>
+          <h1 class="text-2xl font-extrabold tracking-tight">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyberBlue to-cyberPurple">
+              CyberVStacks
+            </span>
+          </h1>
+          <p class="text-xs text-slate-400 uppercase tracking-[0.18em]">
+            Web · Apps · Cloud · DevOps
+          </p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#services" class="hover:text-cyberBlue transition">Services</a>
+        <a href="#industries" class="hover:text-cyberBlue transition">Industries</a>
+        <a href="#projects" class="hover:text-cyberBlue transition">Projects</a>
+        <a href="#pricing" class="hover:text-cyberBlue transition">Pricing</a>
+        <a href="#about" class="hover:text-cyberBlue transition">About</a>
+        <a href="#faq" class="hover:text-cyberBlue transition">FAQ</a>
+        <a
+          href="#contact"
+          class="ml-2 bg-cyberBlue/90 hover:bg-cyberBlue text-gray-900 font-semibold px-4 py-2 rounded-full text-xs uppercase tracking-wide shadow-lg shadow-cyan-500/40 transition"
+        >
+          Start a Project
+        </a>
+      </nav>
+
+      <button class="md:hidden flex items-center justify-center h-10 w-10 rounded-full hover:bg-slate-800/80 transition">
+        <span class="sr-only">Open menu</span>
+        <div class="space-y-1">
+          <span class="block w-5 h-0.5 bg-slate-200"></span>
+          <span class="block w-5 h-0.5 bg-slate-400"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative z-10">
+    <div class="max-w-7xl mx-auto px-4 py-16 lg:py-20 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-cyan-400/40 text-xs uppercase tracking-[0.2em] text-cyan-200">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>End‑to‑End Web App Development Company</span>
+        </div>
+
+        <div>
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-4">
+            We design, build & scale
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyberBlue via-cyberPurple to-cyan-300">
+              production‑ready web apps
+            </span>
+            for modern businesses.
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg max-w-xl">
+            CyberVStacks is a specialized web app development company helping startups and enterprises ship
+            secure, scalable and beautiful applications—from prototype to global scale.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            href="#contact"
+            class="bg-cyberBlue hover:bg-cyan-400 text-slate-900 font-semibold px-6 py-3 rounded-full text-sm shadow-lg shadow-cyan-500/40 transition"
+          >
+            Get a Free Consultation
+          </a>
+          <a
+            href="#projects"
+            class="inline-flex items-center gap-2 text-sm text-slate-200 hover:text-cyberBlue transition"
+          >
+            View Case Studies
+            <span class="text-lg">↗</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 text-xs sm:text-sm text-slate-300 max-w-md">
+          <div>
+            <p class="font-bold text-white text-lg">50+ </p>
+            <p class="text-slate-400">Web apps delivered</p>
+          </div>
+          <div>
+            <p class="font-bold text-white text-lg">10+ </p>
+            <p class="text-slate-400">Industries served</p>
+          </div>
+          <div>
+            <p class="font-bold text-white text-lg">4.9★</p>
+            <p class="text-slate-400">Average client rating</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual / Tech stack card -->
+      <div class="relative">
+        <div
+          class="glass rounded-3xl border border-slate-700/60 shadow-[0_0_60px_rgba(56,189,248,0.35)] p-6 sm:p-8 animate-float"
+        >
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-1">
+                WEB APP DELIVERY STACK
+              </p>
+              <p class="text-lg font-semibold">From UI to Cloud</p>
+            </div>
+            <span
+              class="text-[10px] px-2 py-1 rounded-full border border-emerald-400/60 text-emerald-300 bg-emerald-500/10"
+              >PRODUCTION READY</span
+            >
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div class="space-y-3">
+              <div>
+                <p class="text-slate-400 text-[11px] uppercase tracking-[0.18em]">
+                  Frontend
+                </p>
+                <p class="font-medium">React · Next.js · Vue · Tailwind</p>
+              </div>
+              <div>
+                <p class="text-slate-400 text-[11px] uppercase tracking-[0.18em]">
+                  Backend & APIs
+                </p>
+                <p class="font-medium">Node.js · Django · FastAPI</p>
+              </div>
+              <div>
+                <p class="text-slate-400 text-[11px] uppercase tracking-[0.18em]">
+                  Cloud & DevOps
+                </p>
+                <p class="font-medium">AWS · Docker · CI/CD · Monitoring</p>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="bg-slate-900/70 rounded-2xl p-4 border border-slate-700/70">
+                <p class="text-[11px] text-slate-400 mb-1 uppercase tracking-[0.18em]">
+                  TYPICAL ENGAGEMENT
+                </p>
+                <p class="text-sm">
+                  Discovery → UX & Architecture → Development → Testing → Launch → Support.
+                </p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_12px_rgba(52,211,153,0.8)]"></span>
+                <p class="text-[11px] text-slate-300">
+                  Built‑in logging, security, and performance from day one.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-slate-900/80 text-[11px] border border-slate-600">
+              SaaS Platforms
+            </span>
+            <span class="px-3 py-1 rounded-full bg-slate-900/80 text-[11px] border border-slate-600">
+              Admin Dashboards
+            </span>
+            <span class="px-3 py-1 rounded-full bg-slate-900/80 text-[11px] border border-slate-600">
+              Internal Tools
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="relative z-10 py-8">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="glass rounded-2xl border border-slate-700/70 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400">
+          Trusted modern web app technologies
+        </p>
+        <div class="flex flex-wrap gap-4 text-xs sm:text-sm text-slate-200">
+          <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700">React</span>
+          <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700">Next.js</span>
+          <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700">Node.js</span>
+          <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700">Django</span>
+          <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700">PostgreSQL</span>
+          <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700">MongoDB</span>
+          <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700">Docker</span>
+          <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700">AWS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="relative z-10 py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+        <div>
+          <h3 class="text-3xl md:text-4xl font-bold mb-3">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyberBlue to-cyberPurple">
+              Web App Development Services
+            </span>
+          </h3>
+          <p class="text-slate-300 max-w-xl">
+            We cover the full lifecycle of web app development—from strategy and UX to development, deployment,
+            and long‑term maintenance.
+          </p>
+        </div>
+        <p class="text-sm text-slate-400 max-w-xs">
+          Choose a full‑project team or let us augment your existing development team.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="glass rounded-2xl p-6 border border-slate-700/70 hover:border-cyberBlue/70 hover:shadow-[0_0_35px_rgba(56,189,248,0.45)] transition">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="text-xl font-semibold text-cyan-300">Custom Web App Development</h4>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-200">
+              End‑to‑End
+            </span>
+          </div>
+          <p class="text-slate-300 text-sm mb-4">
+            Bespoke web applications tailored to your workflows, users, and growth plans.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>• Greenfield product builds and MVPs</li>
+            <li>• Multi‑tenant SaaS platforms</li>
+            <li>• Role‑based dashboards and admin portals</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glass rounded-2xl p-6 border border-slate-700/70 hover:border-emerald-400/70 hover:shadow-[0_0_35px_rgba(52,211,153,0.45)] transition">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="text-xl font-semibold text-emerald-300">API & Backend Development</h4>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-400/50 text-emerald-200">
+              Core Logic
+            </span>
+          </div>
+          <p class="text-slate-300 text-sm mb-4">
+            Highly secure and scalable backends that power your apps, integrations, and automation.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>• REST & GraphQL APIs for web and mobile</li>
+            <li>• Authentication, payments, and 3rd‑party integrations</li>
+            <li>• Microservices & event‑driven architectures</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glass rounded-2xl p-6 border border-slate-700/70 hover:border-purple-400/70 hover:shadow-[0_0_35px_rgba(168,85,247,0.45)] transition">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="text-xl font-semibold text-purple-300">Modernization & DevOps</h4>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-purple-500/10 border border-purple-400/50 text-purple-200">
+              Scale
+            </span>
+          </div>
+          <p class="text-slate-300 text-sm mb-4">
+            Upgrade legacy systems, improve performance, and automate your releases.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>• Re‑platforming to modern stacks</li>
+            <li>• CI/CD pipelines & containerization</li>
+            <li>• Monitoring, logging, and performance tuning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section id="industries" class="relative z-10 py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="mb-8 text-center">
+        <h3 class="text-3xl md:text-4xl font-bold mb-3">
+          Industries <span class="text-cyberBlue">We Serve</span>
+        </h3>
+        <p class="text-slate-300 max-w-2xl mx-auto text-sm">
+          We bring deep experience building web applications across multiple verticals.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+        <div class="glass rounded-2xl p-5 border border-slate-700/70">
+          <p class="font-semibold mb-2">SaaS & B2B Platforms</p>
+          <p class="text-slate-300">
+            Subscription products, admin dashboards, and multi‑tenant architectures.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-5 border border-slate-700/70">
+          <p class="font-semibold mb-2">FinTech & Payments</p>
+          <p class="text-slate-300">
+            Secure transaction flows, KYC, and financial dashboards.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-5 border border-slate-700/70">
+          <p class="font-semibold mb-2">E‑Commerce & Marketplaces</p>
+          <p class="text-slate-300">
+            Custom storefronts, vendor portals, and inventory systems.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-5 border border-slate-700/70">
+          <p class="font-semibold mb-2">Internal Tools</p>
+          <p class="text-slate-300">
+            Workflow automation, analytics dashboards, and reporting tools.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="relative z-10 py-16 lg:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h3 class="text-3xl md:text-4xl font-bold mb-3">
+          Our Web App Development <span class="text-cyberBlue">Process</span>
+        </h3>
+        <p class="text-slate-300 max-w-2xl mx-auto text-sm">
+          A transparent, structured workflow that keeps your product on time, on budget, and aligned with your
+          business goals.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6 text-sm">
+        <div class="glass rounded-2xl p-5 border border-slate-700/70">
+          <p class="text-xs text-slate-400 mb-1 uppercase tracking-[0.2em]">01</p>
+          <p class="font-semibold mb-2">Discovery & Strategy</p>
+          <p class="text-slate-300">
+            We define your business goals, target users, and success metrics, then turn them into a clear roadmap.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-5 border border-slate-700/70">
+          <p class="text-xs text-slate-400 mb-1 uppercase tracking-[0.2em]">02</p>
+          <p class="font-semibold mb-2">UX / UI & Architecture</p>
+          <p class="text-slate-300">
+            We design flows, wireframes, and scalable architecture that keep your app flexible as you grow.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-5 border border-slate-700/70">
+          <p class="text-xs text-slate-400 mb-1 uppercase tracking-[0.2em]">03</p>
+          <p class="font-semibold mb-2">Agile Development</p>
+          <p class="text-slate-300">
+            Iterative sprints with weekly demos, code reviews, and continuous integration.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-5 border border-slate-700/70">
+          <p class="text-xs text-slate-400 mb-1 uppercase tracking-[0.2em]">04</p>
+          <p class="font-semibold mb-2">Launch & Support</p>
+          <p class="text-slate-300">
+            Production deployment, monitoring, and ongoing support or handover to your internal team.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects / Case Studies -->
+  <section id="projects" class="relative z-10 py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+        <div>
+          <h3 class="text-3xl md:text-4xl font-bold mb-3">
+            Featured <span class="text-cyberBlue">Projects</span>
+          </h3>
+          <p class="text-slate-300 max-w-xl text-sm">
+            A sample of the web apps we’ve delivered for clients worldwide.
+          </p>
+        </div>
+        <p class="text-sm text-slate-400 max-w-xs">
+          We sign NDAs when required. These examples are generalized to protect client confidentiality.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 text-sm">
+        <div class="glass rounded-2xl p-6 border border-slate-700/70">
+          <p class="text-xs text-slate-400 uppercase tracking-[0.18em] mb-1">SAAS PLATFORM</p>
+          <p class="font-semibold mb-2">Team Analytics Dashboard</p>
+          <p class="text-slate-300 mb-3">
+            A multi‑tenant analytics platform helping distributed teams track productivity and KPIs in real time.
+          </p>
+          <ul class="text-xs text-slate-300 space-y-1 mb-3">
+            <li>• React + Node.js + PostgreSQL</li>
+            <li>• Role‑based access and audit logging</li>
+            <li>• CI/CD with zero‑downtime deployments</li>
+          </ul>
+          <p class="text-[11px] text-emerald-300">
+            Result: reduced reporting time by 60% and increased adoption across 5 business units.
+          </p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 border border-slate-700/70">
+          <p class="text-xs text-slate-400 uppercase tracking-[0.18em] mb-1">INTERNAL TOOL</p>
+          <p class="font-semibold mb-2">Operations Automation Portal</p>
+          <p class="text-slate-300 mb-3">
+            A web portal automating manual spreadsheet‑based workflows for a logistics company.
+          </p>
+          <ul class="text-xs text-slate-300 space-y-1 mb-3">
+            <li>• Next.js + FastAPI</li>
+            <li>• Integration with internal ERP systems</li>
+            <li>• Advanced search and reporting</li>
+          </ul>
+          <p class="text-[11px] text-emerald-300">
+            Result: cut manual data entry by 70% and eliminated duplicated work.
+          </p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 border border-slate-700/70">
+          <p class="text-xs text-slate-400 uppercase tracking-[0.18em] mb-1">B2C WEB APP</p>
+          <p class="font-semibold mb-2">Learning Platform</p>
+          <p class="text-slate-300 mb-3">
+            A responsive learning platform with video content, quizzes, and personalized recommendations.
+          </p>
+          <ul class="text-xs text-slate-300 space-y-1 mb-3">
+            <li>• React SPA with Node.js backend</li>
+            <li>• Subscription and payment integrations</li>
+            <li>• SEO‑friendly and mobile‑first design</li>
+          </ul>
+          <p class="text-[11px] text-emerald-300">
+            Result: 3x monthly active users within 6 months of launch.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / Engagement Models -->
+  <section id="pricing" class="relative z-10 py-16 lg:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h3 class="text-3xl md:text-4xl font-bold mb-3">
+          Flexible <span class="text-cyberBlue">Engagement Models</span>
+        </h3>
+        <p class="text-slate-300 max-w-2xl mx-auto text-sm">
+          Whether you’re validating an idea or scaling an existing product, we adapt to your budget and timeline.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 text-sm">
+        <div class="glass rounded-2xl p-6 border border-slate-700/70">
+          <p class="text-xs text-slate-400 uppercase tracking-[0.18em] mb-1">01 · FIXED SCOPE</p>
+          <p class="font-semibold mb-2">MVP Package</p>
+          <p class="text-slate-300 mb-3">
+            Best for startups that need to validate a product idea within a clear timeline and budget.
+          </p>
+          <ul class="text-xs text-slate-300 space-y-1 mb-3">
+            <li>• Discovery & UX workshop</li>
+            <li>• 8–12 week delivery window</li>
+            <li>• Fixed price with defined scope</li>
+          </ul>
+          <p class="text-[11px] text-slate-400">
+            Ideal if you have clear requirements and want a launch‑ready MVP.
+          </p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 border border-cyberBlue/80 shadow-[0_0_40px_rgba(56,189,248,0.25)]">
+          <p class="text-xs text-cyan-300 uppercase tracking-[0.18em] mb-1">02 · RETAINER</p>
+          <p class="font-semibold mb-2">Product Team Extension</p>
+          <p class="text-slate-300 mb-3">
+            Ongoing collaboration with a dedicated team integrated into your processes.
+          </p>
+          <ul class="text-xs text-slate-300 space-y-1 mb-3">
+            <li>• Monthly or quarterly retainers</li>
+            <li>• Prioritized roadmap & sprint planning</li>
+            <li>• Ideal for growing products</li>
+          </ul>
+          <p class="text-[11px] text-slate-400">
+            Recommended for companies that need continuous development and iteration.
+          </p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 border border-slate-700/70">
+          <p class="text-xs text-slate-400 uppercase tracking-[0.18em] mb-1">03 · CONSULTING</p>
+          <p class="font-semibold mb-2">Architecture & DevOps</p>
+          <p class="text-slate-300 mb-3">
+            Short‑term engagements to review, optimize, or re‑architect your existing web app systems.
+          </p>
+          <ul class="text-xs text-slate-300 space-y-1 mb-3">
+            <li>• Codebase reviews & audits</li>
+            <li>• DevOps, performance, and security reviews</li>
+            <li>• Recommendations & implementation support</li>
+          </ul>
+          <p class="text-[11px] text-slate-400">
+            Great if you already have a team and need expert guidance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="relative z-10 py-16 lg:py-20">
+    <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h3 class="text-3xl md:text-4xl font-bold mb-4">
+          About <span class="text-cyberBlue">CyberVStacks</span>
+        </h3>
+        <p class="text-slate-300 mb-4 text-sm sm:text-base">
+          CyberVStacks is a dedicated web app development company made up of engineers, architects, and DevOps
+          specialists. We focus on building software that is simple to use, powerful under the hood, and easy to
+          maintain over time.
+        </p>
+        <p class="text-slate-300 text-sm sm:text-base mb-4">
+          We combine strong product thinking with technical excellence. That means we don’t just write code—we
+          help you choose the right features, architecture, and roadmap to support your long‑term strategy.
+        </p>
+        <ul class="text-sm text-slate-300 space-y-2">
+          <li>• Opinionated about best practices, flexible about tools</li>
+          <li>• Transparent communication with regular demos and reports</li>
+          <li>• Focused on security, performance, and developer experience</li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <div class="glass rounded-2xl p-5 border border-slate-700/70">
+          <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-1">OUR MISSION</p>
+          <p class="text-sm text-slate-200">
+            To help companies ship reliable web applications faster—without sacrificing quality or long‑term
+            maintainability.
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-3 text-center text-xs">
+          <div class="glass rounded-2xl py-4 border border-slate-700/70">
+            <p class="text-lg font-bold text-cyan-300">10+</p>
+            <p class="text-slate-400 mt-1">Tech stacks mastered</p>
+          </div>
+          <div class="glass rounded-2xl py-4 border border-slate-700/70">
+            <p class="text-lg font-bold text-emerald-300">4x</p>
+            <p class="text-slate-400 mt-1">Average scaling capacity</p>
+          </div>
+          <div class="glass rounded-2xl py-4 border border-slate-700/70">
+            <p class="text-lg font-bold text-purple-300">0</p>
+            <p class="text-slate-400 mt-1">Tolerance for flaky releases</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="relative z-10 py-16 lg:py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <h3 class="text-3xl md:text-4xl font-bold mb-3">
+          Frequently Asked <span class="text-cyberBlue">Questions</span>
+        </h3>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto">
+          A few common questions about working with us as your web app development partner.
+        </p>
+      </div>
+
+      <div class="space-y-4 text-sm">
+        <div class="glass rounded-2xl p-4 border border-slate-700/70">
+          <p class="font-semibold mb-1">How long does it take to build a web application?</p>
+          <p class="text-slate-300">
+            It depends on scope, but most MVPs take 8–12 weeks from discovery to launch. Larger platforms can
+            range from 3–6+ months. We’ll give you a detailed timeline after our initial discovery call.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-4 border border-slate-700/70">
+          <p class="font-semibold mb-1">Can you work with our existing design or development team?</p>
+          <p class="text-slate-300">
+            Yes. We frequently collaborate with in‑house designers, PMs, and developers—either owning specific
+            parts (e.g., frontend or DevOps) or acting as a full product team.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-4 border border-slate-700/70">
+          <p class="font-semibold mb-1">Do you provide ongoing support after launch?</p>
+          <p class="text-slate-300">
+            Absolutely. We offer support and maintenance retainers to handle bug fixes, minor feature updates,
+            performance improvements, and infrastructure management.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="relative z-10 py-16 lg:py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <h3 class="text-3xl md:text-4xl font-bold mb-3">
+          Let’s <span class="text-cyberBlue">Talk</span> About Your Web App
+        </h3>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto">
+          Share a bit about your idea or existing product, and we’ll get back to you with the best way we can
+          help—no obligations.
+        </p>
+      </div>
+
+      <form class="glass rounded-3xl p-8 border border-slate-700/80 space-y-6">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-slate-300 mb-1 uppercase tracking-[0.18em]">
+              Name
+            </label>
+            <input
+              type="text"
+              placeholder="Your name"
+              class="w-full p-3 rounded-lg bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyberBlue/80"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-xs text-slate-300 mb-1 uppercase tracking-[0.18em]">
+              Company
+            </label>
+            <input
+              type="text"
+              placeholder="Company name (optional)"
+              class="w-full p-3 rounded-lg bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyberBlue/80"
+            />
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-slate-300 mb-1 uppercase tracking-[0.18em]">
+              Email
+            </label>
+            <input
+              type="email"
+              placeholder="you@company.com"
+              class="w-full p-3 rounded-lg bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyberBlue/80"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-xs text-slate-300 mb-1 uppercase tracking-[0.18em]">
+              Project Type
+            </label>
+            <select
+              class="w-full p-3 rounded-lg bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyberBlue/80"
+            >
+              <option value="">Select an option</option>
+              <option>New Web App / MVP</option>
+              <option>Existing App Modernization</option>
+              <option>Internal Tool / Dashboard</option>
+              <option>API / Backend Only</option>
+              <option>Architecture / DevOps Consulting</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1 uppercase tracking-[0.18em]">
+            Project Details
+          </label>
+          <textarea
+            rows="5"
+            placeholder="Tell us about your goals, key features, target users, and timeline..."
+            class="w-full p-3 rounded-lg bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyberBlue/80"
+            required
+          ></textarea>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <button
+            type="submit"
+            class="bg-cyberBlue hover:bg-cyan-400 text-slate-900 font-semibold px-8 py-3 rounded-full text-sm shadow-lg shadow-cyan-500/40 transition"
+          >
+            Send Message
+          </button>
+          <p class="text-[11px] text-slate-400">
+            We usually respond within
+            <span class="text-slate-200 font-medium">24–48 hours</span>.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-slate-800/80 bg-slate-950/80 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+      <p>&copy; 2025 CyberVStacks. Web App Development Company. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <span>Need a reliable web app partner?</span>
+        <a href="#contact" class="text-cyberBlue hover:text-cyan-300">Get in touch →</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

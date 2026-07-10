@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Careers | CyberVStacks</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f6fc;
+      margin: 0;
+      padding: 20px;
+      color: #1a1a1a;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+
+    .job-listings {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .job-card {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .job-card:hover {
+      background-color: #f8fbff;
+      border-color: #003366;
+    }
+
+    .job-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #003366;
+    }
+
+    .job-meta {
+      font-size: 14px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    .description {
+      display: none;
+      margin-top: 10px;
+      font-size: 15px;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    form {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background: #003366;
+      color: white;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00509e;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Join CyberVStacks</h1>
+  <p>Empowering IT Careers & Cloud Solutions</p>
+</header>
+
+<h2>Open Positions</h2>
+<div class="job-listings">
+
+  <div class="job-card" onclick="toggleDescription('desc1')">
+    <!-- <div class="job-title">HR Recruiter</div>
+    <div class="job-meta">Full-time · Remote · 0-5 years exp</div>
+    <div class="description" id="desc1">
+      <p>Design, deploy, and manage scalable cloud infrastructure on AWS/Azure. Strong scripting and architecture knowledge required.</p>
+    </div>
+  </div> -->
+
+    <div class="job-title">HR Recruiter</div>
+    <div class="job-meta">Full-time · Remote · 0–5 years exp</div>
+    <div class="description" id="desc1">
+      <h3>About CyberVStacks</h3>
+      <p>CyberVStacks is a fast-growing IT company delivering services in DevOps, MLOps, Cloud Solutions, and Digital Transformation. We're on a mission to build top-tier teams that power the future of tech.</p>
+
+      <h3>Responsibilities</h3>
+      <ul>
+        <li>Understand hiring needs and collaborate with internal stakeholders.</li>
+        <li>Post job openings on various platforms and actively source candidates.</li>
+        <li>Screen resumes and conduct telephonic/video interviews.</li>
+        <li>Coordinate interviews with internal teams and hiring managers.</li>
+        <li>Manage candidate pipeline and maintain recruitment dashboards.</li>
+        <li>Drive the offer, negotiation, and onboarding process.</li>
+      </ul>
+
+      <h3>Requirements</h3>
+      <ul>
+        <li>Bachelor’s degree in HR, Business Admin, or relevant field.</li>
+        <li>0–5 years of recruitment experience (IT or Non-IT).</li>
+        <li>Excellent communication and interpersonal skills.</li>
+        <li>Familiarity with job portals like Naukri, LinkedIn, etc.</li>
+        <li>Ability to work independently in a remote environment.</li>
+      </ul>
+
+      <h3>Preferred Skills</h3>
+      <ul>
+        <li>Experience in technical recruitment (DevOps, Cloud, Data roles).</li>
+        <li>Knowledge of ATS/HRMS systems.</li>
+        <li>Basic understanding of recruitment metrics and KPIs.</li>
+      </ul>
+
+      <h3>Benefits</h3>
+      <ul>
+        <li>Fully remote work flexibility.</li>
+        <li>Performance-based incentives.</li>
+        <li>Opportunity to work with leadership and grow fast.</li>
+        <li>Learning and development support.</li>
+      </ul>
+
+      <h3>Apply Now</h3>
+      <p>Email your resume to <strong>info@cybervstacks.in</strong> HR Recruiter:</p>
+      <p><em>“Application for HR Recruiter – [Nivedha]”</em></p>
+
+      <div style="text-align: left; margin-top: 10px;">
+        <a href="mailto:info@cybervstacks.work.in" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; font-size: 14px;">Apply via Email</a>
+      </div>
+    </div>
+
+  <!-- <div class="job-card" onclick="toggleDescription('desc2')">
+    <div class="job-title">DevOps Specialist</div>
+    <div class="job-meta">Full-time · Hybrid · 3+ years exp</div>
+    <div class="description" id="desc2">
+      <p>Automate CI/CD pipelines and manage infrastructure as code with tools like Terraform, Docker, and Kubernetes.</p>
+    </div>
+  </div>
+
+  <div class="job-card" onclick="toggleDescription('desc3')">
+    <div class="job-title">Security Analyst</div>
+    <div class="job-meta">Contract · On-site · 1+ year exp</div>
+    <div class="description" id="desc3">
+      <p>Monitor security threats and perform vulnerability assessments. Experience with SIEM and compliance tools preferred.</p>
+    </div>
+  </div> -->
+
+</div>
+
+<h2>Apply Now</h2>
+<form id="jobForm">
+  <input type="text" name="name" placeholder="Full Name" required />
+  <input type="email" name="email" placeholder="Email Address" required />
+  <input type="text" name="position" placeholder="Position Applying For" required />
+  <textarea name="message" placeholder="Your Message (Optional)"></textarea>
+  <input type="file" name="resume" accept="application/pdf" required />
+  <button type="submit">Submit Application</button>
+</form>
+
+<script>
+  function toggleDescription(id) {
+    document.querySelectorAll('.description').forEach(desc => desc.style.display = 'none');
+    const selected = document.getElementById(id);
+    selected.style.display = selected.style.display === 'block' ? 'none' : 'block';
+  }
+
+  emailjs.init("bn4T3DTP_moD0wKg1");
+
+  document.getElementById("jobForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = this;
+    const fileInput = form.querySelector('input[type="file"]');
+    const file = fileInput.files[0];
+
+    if (!file || file.type !== "application/pdf") {
+      alert("Please upload a valid PDF resume.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function () {
+      const base64Resume = reader.result.split(',')[1];
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        position: form.position.value,
+        message: form.message.value,
+        resume: base64Resume,
+        filename: file.name,
+      };
+
+      emailjs.send("service_cybervstacks", "template_cybervstacks", data)
+        .then(() => {
+          alert("Application submitted successfully!");
+          form.reset();
+        })
+        .catch((err) => {
+          console.error("Email sending error:", err);
+          alert("Something went wrong. Try again later.");
+        });
+    };
+    reader.readAsDataURL(file);
+  });
+</script>
+
+</body>
+</html>

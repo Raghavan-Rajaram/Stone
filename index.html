@@ -1,134 +1,1620 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Runestone IT Consulting Services</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <div class="brand">
-          <h1>Runestone</h1>
-          <p>IT Consulting Services</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberVStacks - IT Consulting Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <!-- <link rel="icon" href="./images/image.png"> -->
+    <link rel="icon" href="./images/Cyber.png" type="image/png">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #0ea5e9;
+            --accent: #8b5cf6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background-color: var(--light);
+            color: #333;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            padding: 0.7rem 5%;
+            background: white;
+        }
+        
+        .logo img {
+            height: 50px;
+            transition: all 0.3s;
+        }
+        
+        .header.scrolled .logo img {
+            height: 40px;
+        }
+        
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .navbar ul li {
+            margin: 0 1rem;
+        }
+        
+        .navbar ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .navbar ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transform: translateX(-50%);
+            transition: width 0.3s;
+        }
+        
+        .navbar ul li a:hover::after,
+        .navbar ul li a.active::after {
+            width: 70%;
+        }
+        
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            color: var(--primary);
+        }
+        
+        .fa-bars {
+            font-size: 1.8rem;
+            color: var(--dark);
+            cursor: pointer;
+            display: none;
+        }
+        
+        /* Hero Section */
+        .home {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 10%;
+            background: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+        
+        .home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 50, 0.7);
+        }
+        
+        .home h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            animation: fadeInDown 1s ease;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .home h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            position: relative;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            margin-top: 2rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            animation: fadeInUp 1s ease 0.6s forwards;
+            opacity: 0;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(37, 99, 235, 0.6);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 8rem 10% 5rem;
+            background: white;
+            position: relative;
+        }
+        
+        .heading {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 4rem;
+            position: relative;
+            color: var(--dark);
+        }
+        
+        .heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 500px;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+        
+        .btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 6rem 10%;
+            background: #f8fafc;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient);
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .service-content p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-link i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 5rem 10%;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+        }
+        
+        .stat-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 6rem 10%;
+            background: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(37, 99, 235, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 10%;
+            background: #f8fafc;
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin: 0 1rem;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            color: #777;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 6rem 10%;
+            background: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-img {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .team-card:hover .team-img img {
+            transform: scale(1.1);
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+        }
+        
+        .team-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .team-info p {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .team-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .team-social a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 6rem 10%;
+            background: #f8fafc;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-detail i {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+        
+        .contact-detail div p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .contact-form {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 10%;
+            background: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .accordion-header {
+            padding: 1.5rem;
+            background: #f8fafc;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        
+        .accordion-header:hover {
+            background: #f1f5f9;
+        }
+        
+        .accordion-header.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .accordion-header i {
+            transition: transform 0.3s;
+        }
+        
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-body {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .accordion-content {
+            padding: 1.5rem 0;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Clients Section */
+        .clients {
+            padding: 5rem 10%;
+            background: #f8fafc;
+            text-align: center;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+        
+        .client-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .client-logo img {
+            max-width: 100%;
+            max-height: 60px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 10% 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-col .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .footer-col .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .footer-col .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .whatsapp-popup {
+            position: fixed;
+            width: 200px;
+            bottom: 110px;
+            right: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            z-index: 999;
+            display: none;
+            animation: fadeInUp 0.3s ease;
+        }
+        
+        .whatsapp-popup.show {
+            display: block;
+        }
+        
+        .whatsapp-popup::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid white;
+        }
+        
+        .whatsapp-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-option:last-child {
+            margin-bottom: 0;
+        }
+        
+        .whatsapp-option:hover {
+            background-color: #e9ecef;
+            transform: translateX(-5px);
+        }
+        
+        .whatsapp-option i {
+            color: #25d366;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        .whatsapp-option span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .whatsapp-close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .fa-bars {
+                display: block;
+            }
+            
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: all 0.3s ease;
+            }
+            
+            .navbar.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .navbar ul {
+                flex-direction: column;
+            }
+            
+            .navbar ul li {
+                margin: 1rem 0;
+            }
+            
+            .home h1 {
+                font-size: 3rem;
+            }
+            
+            .home h2 {
+                font-size: 1.5rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+            
+            .whatsapp-popup {
+                width: 180px;
+                bottom: 80px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="./images/Cyber.png" alt="CyberVStacks Logo">
         </div>
-        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-        <nav class="site-nav">
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+        
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
-      </div>
+        
+        <div class="fa fa-bars"></div>
     </header>
 
-    <main>
-      <section class="hero" id="home">
-        <div class="container hero-content">
-          <h2>Modern IT consulting for growing businesses</h2>
-          <p>We help organizations build reliable infrastructure, secure systems, and scalable applications with a practical, people-first approach.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Book a Consultation</a>
-            <a class="btn btn-secondary" href="#services">View Services</a>
-          </div>
-        </div>
-      </section>
+    <!-- Hero Section -->
+    <section id="home" class="home">
+        <h1>CyberVStacks</h1>
+        <h2>IT Consulting Services</h2>
+        <button class="cta-button">Get Started</button>
+    </section>
 
-      <section class="section" id="services">
-        <div class="container">
-          <h3>Our Services</h3>
-          <div class="cards">
-            <article class="card">
-              <h4>IT Strategy</h4>
-              <p>Align technology with your business goals through planning, roadmaps, and modern best practices.</p>
-            </article>
-            <article class="card">
-              <h4>Cloud Migration</h4>
-              <p>Move confidently to cloud-native systems with secure, cost-effective architecture and expert guidance.</p>
-            </article>
-            <article class="card">
-              <h4>Security & Compliance</h4>
-              <p>Protect your data and systems with auditing, risk mitigation, and compliance-ready controls.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section feature" id="about">
-        <div class="container feature-grid">
-          <div>
-            <h3>Who We Are</h3>
-            <p>Runestone IT Consulting Services combines deep technical experience with a customer-first mindset. We partner with clients to deliver dependable IT solutions that support growth, improve efficiency, and reduce risk.</p>
-            <ul>
-              <li>Experienced IT consultants</li>
-              <li>Custom strategy tailored to your business</li>
-              <li>Transparent communication and delivery</li>
-            </ul>
-          </div>
-          <div class="stats">
-            <div class="stat">
-              <strong>15+</strong>
-              <span>Years in IT</span>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h1 class="heading">About Us</h1>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="About CyberVStacks">
             </div>
-            <div class="stat">
-              <strong>30+</strong>
-              <span>Successful projects</span>
+            <div class="about-text">
+                <h3>We are innovators in IT consulting, transforming businesses with cutting-edge technology and strategy!</h3>
+                <p>CyberVStacks delivers cutting-edge solutions in DevOps, MLOps, Cybersecurity, Artificial Intelligence, Automation Testing, and HR Consulting. Our multidisciplinary team empowers businesses to innovate, scale, and succeed through tailored strategies and technology expertise.</p>
+                <p>With a passion for innovation and a commitment to excellence, we help businesses navigate the complexities of digital transformation and achieve sustainable growth in today's competitive landscape.</p>
+                <a href="#" class="btn">Read More</a>
             </div>
-            <div class="stat">
-              <strong>99%</strong>
-              <span>Client retention</span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h1 class="heading">Our Services</h1>
+        <p class="text-center">We help you build high-quality digital solutions and products as well as deliver a wide range of related professional services.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Web App Development</h3>
+                    <p>Our Custom Web Development Services Include Both Front-End And Back-End Development. Whether It Is Enhancing An Existing App Or Architecting An Enterprise App, Our Developers Are Up For The Challenge.</p>
+                    <a href="webdev.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
-          </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="service-content">
+                    <h3>DevOps Consulting</h3>
+                    <p>Our team of DevOps specialists brings deep expertise to streamline development, enhance collaboration, and automate infrastructure using modern tools and best practices.</p>
+                    <a href="devops.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Cybersecurity Services</h3>
+                    <p>We provide end-to-end cybersecurity solutions to protect your business from threats, ensure compliance, and safeguard critical data across all digital touchpoints.</p>
+                    <a href="cyber.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="service-content">
+                    <h3>AI/ML Solutions</h3>
+                    <p>We integrate Artificial Intelligence & Machine Learning models into scalable production environments, ensuring reliability, monitoring, and lifecycle automation across ML workflows.</p>
+                    <a href="aiml.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="service-content">
+                    <h3>IT Certification Trainings</h3>
+                    <p>We provide robust automation testing frameworks to accelerate your release cycles, reduce manual effort, and ensure software reliability across platforms and environments.</p>
+                    <a href="ittraining.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="service-content">
+                    <h3>IT JobSupport </h3>
+                    <p>Get professional assistance to excel in your DevOps, MLOps, Cloud, and AI-based roles. Our experts help you tackle complex tasks, meet deadlines, and overcome workplace challenges with confidence.</p>
+                    <a href="jobsupport.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Academic & IT Projects Support</h3>
+                    <p> Expert guidance for University Projects, IT Implementations, and Professional Job Support across DevOps, MLOps, Cloud, and AI technologies.</p>
+                    <a href="Academic.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Automation Testing Services</h3>
+                    <p>We provide robust automation testing frameworks to accelerate your release cycles, reduce manual effort, and ensure software reliability across platforms and environments.</p>
+                    <a href="testing.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-id-badge"></i>
+                </div>
+                <div class="service-content">
+                    <h3>IT Background Verification</h3>
+                    <p>We provide robust automation testing frameworks to accelerate your release cycles, reduce manual effort, and ensure software reliability across platforms and environments.</p>
+                    <a href="bgv.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Mobile App Development</h3>
+                    <p>We Have Expertise In Creating Multi-Platform Mobile App Solutions For Both Android And IOS Devices. Using PhoneGap, Xamarin, And React Native, We Offer Custom Mobile App That Runs Smoothly On Multiple Platforms.</p>
+                    <a href="mobile.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Digital Marketing</h3>
+                    <p>The digital marketing services that we provide have their own set of charms. By taking our digital marketing services, our clients will be able to increase visibility and engage with their customers at the online platform.</p>
+                    <a href="digital.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section class="section testimonials">
-        <div class="container">
-          <h3>Trusted by leaders in their field</h3>
-          <div class="testimonial-grid">
-            <blockquote>
-              <p>Runestone helped us move to the cloud without disruption and improved our security posture faster than expected.</p>
-              <cite>— Laura M., Operations Director</cite>
-            </blockquote>
-            <blockquote>
-              <p>Their team made complex IT strategy easy to understand, and the project was delivered on time with clear communication.</p>
-              <cite>— Naveen K., Founder</cite>
-            </blockquote>
-          </div>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <i class="far fa-clock"></i>
+                <div class="stat-number" data-count="13500">0</div>
+                <div class="stat-text">Working Hours</div>
+            </div>
+            
+            <div class="stat-item">
+                <i class="fas fa-gift"></i>
+                <div class="stat-number" data-count="720">0</div>
+                <div class="stat-text">Completed Projects</div>
+            </div>
+            
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <div class="stat-number" data-count="480">0</div>
+                <div class="stat-text">Happy Clients</div>
+            </div>
+            
+            <div class="stat-item">
+                <i class="fas fa-award"></i>
+                <div class="stat-number" data-count="120">0</div>
+                <div class="stat-text">Awards Received</div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section class="section contact" id="contact">
-        <div class="container contact-grid">
-          <div>
-            <h3>Get in Touch</h3>
-            <p>Ready to elevate your IT systems? Send us a message and we’ll reach out to discuss your needs.</p>
-          </div>
-          <form id="contact-form">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <p class="form-status" id="form-status" aria-live="polite"></p>
-          </form>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <h1 class="heading">Our Projects</h1>
+        <p class="text-center">The objective of IT Company is to enable a large number of youth to take up industry-relevant skill training.</p>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Project 1" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Enterprise Cloud Solution</h3>
+                    <p>Scalable cloud infrastructure for global retail chain</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1715&q=80" alt="Project 2" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>AI-Powered Analytics</h3>
+                    <p>Machine learning platform for financial predictions</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Project 3" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Mobile Banking App</h3>
+                    <p>Secure banking application with biometric authentication</p>
+                </div>
+            </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>© 2026 Runestone IT Consulting Services. All rights reserved.</p>
-        <p>Contact: hello@runestoneit.com</p>
-      </div>
+    <!-- Careers Section -->
+    <section id="portfolio" class="portfolio">
+        <h1 class="heading">Careers</h1>
+        <p class="text-center">Fuel your future in tech-innovate and lead with CyberVStacks. Join us and shape what's next.</p>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=1715&q=80" alt="Job Interview" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Join with us</h3>
+                    <p>CyberVStacks</p>
+                    <a href="job2.html" class="service-link" style="color: white; font-size: 1.5rem;"> Click here <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h1 class="heading">Get In Touch</h1>
+        <p class="text-center">Have questions? We're here to help</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <p>Thiru Vi Ka Industrial Estate</p>
+                        <p>Tamilnadu Chennai-32</p>
+                        <p>India</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <p>+91 9499086786</p>
+                        <p>+91 9499068786</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <p>info@cybervstacks.in</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <p>Monday - Friday: 9AM - 6PM</p>
+                        <p>Saturday: 10AM - 4PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="user_name" class="form-control" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" name="user_email" class="form-control" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" name="user_phone" class="form-control" placeholder="Your Phone">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="subject" class="form-control" placeholder="Subject">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <h1 class="heading">Frequently Asked Questions</h1>
+        
+        <div class="faq-container">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>How much will it cost?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        <p>To get a better idea of the cost of what you want to build, give us a quick phone call. We'll ask you a few questions about the nature of the site, what sort of interactivity the site will have, your graphic design needs, etc. Then we'll be able to give you a ballpark figure. If you're still interested, we'll come to your place of business and come up with a firm quote.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>How long does it take to design?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        <p>The time limit of any assignment is normally dictated by the client. If you have any time limit in mind we will attempt to assemble it for you. The main general delay in the making of a website is waiting for the content of the pages to be sent to us by the client.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>How do I associate with IT Company?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        <p>The process begins when you contact us with your requirements. We analyze your requirements and respond to you. On the basis of the further discussion, you can choose an engagement model that suits you the best. After that, we begin the process of development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#services">Our services</a></li>
+                    <li><a href="#">Terms & condition</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Mobile App Development</a></li>
+                    <li><a href="#">UI/UX Design</a></li>
+                    <li><a href="#">Digital Marketing</a></li>
+                    <li><a href="#">Cloud Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <p>Connect with us on social media</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            Copyright &copy; 2023 CyberVStacks. All Rights Reserved.
+        </div>
     </footer>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" id="whatsappButton">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+    
+    <div class="whatsapp-popup" id="whatsappPopup">
+        <button class="whatsapp-close" id="whatsappClose">&times;</button>
+        <h4 style="margin-bottom: 10px; color: var(--dark);">Chat with us</h4>
+        <a href="https://wa.me/9499086786" target="_blank" class="whatsapp-option">
+            <i class="fab fa-whatsapp"></i>
+            <span>9499086786</span>
+        </a>
+        <!-- <a href="https://wa.me/9499068786" target="_blank" class="whatsapp-option">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp 2: 9499068786</span>
+        </a> -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // EmailJS initialization
+        (function(){
+            emailjs.init("bn4T3DTP_moD0wKg1");
+        })();
+
+        // Contact form submission
+        document.getElementById("contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            emailjs.sendForm("service_cybervstacks", "template_cybervstacks", this)
+                .then(function(response) {
+                    alert("Message sent successfully!");
+                    document.getElementById("contact-form").reset();
+                }, function(error) {
+                    alert("Failed to send message. Please try again.");
+                    console.error("EmailJS Error:", error);
+                });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.fa-bars').addEventListener('click', () => {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.navbar').classList.remove('active');
+            });
+        });
+        
+        // Sticky header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            header.classList.toggle('scrolled', window.scrollY > 100);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Active link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.classList.toggle('active');
+                const body = header.nextElementSibling;
+                if(header.classList.contains('active')) {
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                } else {
+                    body.style.maxHeight = 0;
+                }
+            });
+        });
+        
+        // Counter animation
+        function animateCounter() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-count');
+                    const count = +counter.innerText;
+                    
+                    const increment = target / speed;
+                    
+                    if(count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCount();
+            });
+        }
+        
+        // Initialize counter when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    animateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(document.querySelector('.stats'));
+        
+        // WhatsApp functionality
+        const whatsappButton = document.getElementById('whatsappButton');
+        const whatsappPopup = document.getElementById('whatsappPopup');
+        const whatsappClose = document.getElementById('whatsappClose');
+        
+        // Toggle WhatsApp popup
+        whatsappButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            whatsappPopup.classList.toggle('show');
+        });
+        
+        // Close WhatsApp popup
+        whatsappClose.addEventListener('click', () => {
+            whatsappPopup.classList.remove('show');
+        });
+        
+        // Close popup when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!whatsappPopup.contains(e.target) && !whatsappButton.contains(e.target)) {
+                whatsappPopup.classList.remove('show');
+            }
+        });
+        
+        // Close popup with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                whatsappPopup.classList.remove('show');
+            }
+        });
+        
+        // Get Started button scroll to contact
+        document.querySelector('.cta-button').addEventListener('click', () => {
+            document.querySelector('#contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
 </html>

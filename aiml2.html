@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberVStacks Process | Enhanced</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #8b5cf6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Process Container */
+        .process-container {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        /* Process Steps */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            flex-wrap: wrap;
+        }
+        
+        /* Connecting Line */
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 70px;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            z-index: 1;
+        }
+        
+        /* Step Styles */
+        .step {
+            position: relative;
+            width: 23%;
+            min-width: 230px;
+            margin-bottom: 60px;
+            z-index: 2;
+            perspective: 1000px;
+        }
+        
+        .step-inner {
+            position: relative;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 16px;
+            padding: 30px;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+        
+        .step:hover .step-inner {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+            background: rgba(30, 41, 59, 0.85);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+            transition: all 0.4s ease;
+        }
+        
+        .step:hover .step-icon {
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(99, 102, 241, 0.6);
+        }
+        
+        .step-content {
+            text-align: center;
+        }
+        
+        .step-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #e2e8f0;
+        }
+        
+        .step-content p {
+            color: #94a3b8;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        /* Step Number */
+        .step-number {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.5);
+            z-index: 3;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .process-steps::before {
+                display: none;
+            }
+            
+            .step {
+                width: 48%;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .step {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto 40px;
+            }
+            
+            .process-steps {
+                justify-content: center;
+            }
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .step-icon {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .step:nth-child(2) .step-icon {
+            animation-delay: 0.5s;
+        }
+        
+        .step:nth-child(3) .step-icon {
+            animation-delay: 1s;
+        }
+        
+        .step:nth-child(4) .step-icon {
+            animation-delay: 1.5s;
+        }
+        
+        /* Decorative Elements */
+        .decoration {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.1;
+        }
+        
+        .dec-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 10rem;
+            color: var(--primary);
+        }
+        
+        .dec-2 {
+            bottom: 20%;
+            right: 5%;
+            font-size: 8rem;
+            color: var(--secondary);
+            transform: rotate(45deg);
+        }
+        
+        /* Hover Details */
+        .step-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(37, 99, 235, 0.9), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            border-radius: 0 0 16px 16px;
+            text-align: center;
+        }
+        
+        .step:hover .step-details {
+            transform: translateY(0);
+        }
+        
+        .step-details ul {
+            list-style: none;
+            padding: 0;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+        
+        .step-details li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .step-details li:before {
+            content: '✓';
+            color: var(--success);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Process Section -->
+        <section id="process" class="process">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our CyberVStacks Process</h2>
+                    <p>We follow a structured approach to ensure successful implementation of AI and data science solutions</p>
+                </div>
+                <div class="process-container">
+                    <div class="process-steps">
+                        <!-- Step 1 -->
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-inner">
+                                <div class="step-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Discovery</h4>
+                                    <p>We begin by understanding your business challenges, objectives, and requirements to define the project scope.</p>
+                                </div>
+                                <div class="step-details">
+                                    <ul>
+                                        <li>Requirement analysis</li>
+                                        <li>Problem definition</li>
+                                        <li>Goal setting</li>
+                                        <li>Feasibility study</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-inner">
+                                <div class="step-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Data Exploration</h4>
+                                    <p>We collect, clean, and analyze your data to uncover insights and prepare it for modeling.</p>
+                                </div>
+                                <div class="step-details">
+                                    <ul>
+                                        <li>Data collection & cleaning</li>
+                                        <li>Exploratory analysis</li>
+                                        <li>Feature engineering</li>
+                                        <li>Data visualization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-inner">
+                                <div class="step-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Model Development</h4>
+                                    <p>We design, train, and validate machine learning models to solve your specific business problem.</p>
+                                </div>
+                                <div class="step-details">
+                                    <ul>
+                                        <li>Algorithm selection</li>
+                                        <li>Model training</li>
+                                        <li>Hyperparameter tuning</li>
+                                        <li>Validation & testing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-inner">
+                                <div class="step-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>Deployment</h4>
+                                    <p>We implement the solution into your production environment and monitor performance.</p>
+                                </div>
+                                <div class="step-details">
+                                    <ul>
+                                        <li>API development</li>
+                                        <li>Cloud deployment</li>
+                                        <li>Performance monitoring</li>
+                                        <li>Continuous improvement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Decorative Elements -->
+    <div class="decoration dec-1">
+        <i class="fas fa-brain"></i>
+    </div>
+    <div class="decoration dec-2">
+        <i class="fas fa-network-wired"></i>
+    </div>
+</body>
+</html>
